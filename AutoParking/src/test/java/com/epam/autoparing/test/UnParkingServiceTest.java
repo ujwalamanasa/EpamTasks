@@ -8,19 +8,23 @@ import com.epam.autoparking.service.UnParkingService;
 
 import junit.framework.TestCase;
 /**
- * 
+ * This class is used to test UnParkingService class.
  * @author Manasa_Maddali
  *
  */
 public class UnParkingServiceTest extends TestCase {
-
-	UnParkingService ups = new UnParkingService();
-	HashMap<String,Integer> vehicles=new HashMap<String,Integer>();
-	Queue<Integer> slotQueue = new LinkedList<Integer>();
-	String vehicleNumber="AP12AP1234";
-	int slot=1;
-	vehicles.put(vehicleNumber, slot);
-
-	
-
+/**
+ * This method is used to check UnParking method.
+ */
+public void test() {
+    UnParkingService ups = new UnParkingService();
+    HashMap<String, Integer> vehicles = new HashMap<String, Integer>();
+    Queue<Integer> slotQueue = new LinkedList<Integer>();
+    vehicles.put("AP12AP1234", 1);
+    vehicles.put("AP3HG3109", 2);
+    int slotNumber = ups.unparking(vehicles, "AP12AP1234", slotQueue);
+     int slotNumber1 = ups.unparking(vehicles, "AP12AH8234", slotQueue);
+     assertEquals(1, slotNumber);
+     assertEquals(-1, slotNumber1);
+}
 }

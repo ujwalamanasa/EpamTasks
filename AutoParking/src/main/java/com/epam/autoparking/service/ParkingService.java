@@ -1,4 +1,9 @@
 package com.epam.autoparking.service;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Queue;
 /**
@@ -15,18 +20,25 @@ public class ParkingService {
  * @return vehicle is a HashMap.
  */
 	public int vehicleparking(HashMap<String,Integer> vehicle, Queue<Integer> slotQueue, String vehicleNumber, Integer slot) {
-		int slotNumber;
+		Integer slotNumber;
+		
+		char ch = 'p';
 		if(slotQueue.isEmpty()) {
 		vehicle.put(vehicleNumber, slot);
+		
 		slotNumber = slot;
 		}
 		else {
 			vehicle.put(vehicleNumber,(Integer)slotQueue.peek());
+			
 			slotNumber = (Integer)slotQueue.peek();
 			slotQueue.remove();
 		}
+		WriteToFile wf = new WriteToFile();
+		wf.writeToLogFile(vehicleNumber,slotNumber,ch);
 		return slotNumber;
 	}
+	
 
 }
 

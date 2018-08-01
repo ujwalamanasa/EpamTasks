@@ -12,13 +12,13 @@ public class ValidateTest extends TestCase {
 /**
  * This method used to test whether vehicle number is validated or not.
  */
-	     public void test() {
-	        Validate v = new Validate();
-	        assertTrue(v.validateNumber("AP12AP1234"));
-	        assertFalse(v.validateNumber("asdfgh"));
-	        assertFalse(v.validateNumber("12AP12AP12"));
-	    }
+           public void test() {
+            Validate v = new Validate();
+            assertTrue(v.validateNumber("AP12AP1234"));
+             assertFalse(v.validateNumber("asdfgh"));
+             assertFalse(v.validateNumber("12AP12AP12"));
+       }
 
-	}
+ }
 
 

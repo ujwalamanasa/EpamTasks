@@ -16,11 +16,15 @@ import java.util.Queue;
 		 */
 
 		public int unparking(HashMap<String, Integer> vehicle, String vehicleNumber,Queue<Integer> slotQueue) {
+		char ch = 'u';
 			Integer slotNumber = vehicle.get(vehicleNumber);
 			if(slotNumber != null) {
+				WriteToFile wf = new WriteToFile();
+				wf.writeToLogFile(vehicleNumber,slotNumber,ch);		
 			vehicle.remove(vehicleNumber);
 			slotQueue.add(slotNumber);
-					}
+		
+			}
 			else {
 				slotNumber=-1;
 			}
